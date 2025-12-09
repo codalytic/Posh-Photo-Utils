@@ -45,7 +45,7 @@ if (!(Test-Path -Path $ListFilePath)){
 } 
     
 else {
-        Write-Output "List file found: $ListFilePath, Beginning process. . . `n"
+    Write-Output "List file found: $ListFilePath, Beginning process. . . `n"
 }
 
 # Get an array of records from file list, make sure to fetch only "numbers":
@@ -65,7 +65,6 @@ foreach ($Record in $RawFilesList){
         $InvalidFileNames += $RawFileName                       
     }
 }
-
     
 if ($InvalidFileNames.Count -gt 0){
     Write-Output "The following supplied filenames were invalid: $InvalidFileNames `n"
