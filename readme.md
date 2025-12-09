@@ -10,7 +10,7 @@ This project consists of a set of bespoke utilities I've created for a photograp
 
 Future utilities in this context will be added to this project, as well as improvements / fixes to existing ones.
 
-These utilities are open for use to everyone - but please note that you will be using them under your sole responsibility and at your own discretion.
+These utilities are open for everyone to use - but please note that you will be using them under your sole responsibility and at your own discretion.
 
 At this time, they have only been tested on Windows 7 64bit and Windows 10 64bit,
 and may work properly only using Powershell version 4.0 or above. 
