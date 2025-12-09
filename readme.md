@@ -3,8 +3,10 @@
 > [!NOTE]
 > **Legacy Showcase (2017)**
 > I’m keeping this repository public as a snapshot of my scripting work from a few years back.  
-> It demonstrates my early approach to writing **clean, modular, self-documenting code** and careful handling of precious digital assets,  
-> all while prioritizing usability for less-technical users.
+> It demonstrates my early approach to writing **clean, modular, efficient, self-documenting code** and careful handling of precious digital assets,  
+> all while prioritizing usability for less-technically-inclined users.
+> 
+> * FWIW - at the time of writing this note section (Late 2025), these scripts are still being actively used, and reported to have saved a lot of time and manual effort.  
  
 This project consists of a set of bespoke utilities I've created for a photographer to improve her file management and processing workflows.
 
@@ -15,7 +17,7 @@ These utilities are open for everyone to use - but please note that you will be 
 At this time, they have only been tested on Windows 7 64bit and Windows 10 64bit,
 and may work properly only using Powershell version 4.0 or above. 
 
-Please feel free to get in touch if you have any comments, requests etc...
+Please feel free to get in touch if you have any comments, issues, feature-requests etc...
 
 ## Utility no. 1: "Cull-CR2Files.ps1"
 
