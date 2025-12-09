@@ -24,7 +24,7 @@ Please feel free to get in touch if you have any comments, issues, feature-reque
 ### The "Why":
 The motivation behind this script, derives from the way the photographer preforms her initial filtering after taking numerous photographs:
 
-Each photograph taken is saved (originally to the Camera's SD Card, later on - to local disk for processing) in both it's full sized "RAW" file (`.CR2`), and a compressed `.jpg` file.
+Each photograph taken is saved (originally to the camera's SD Card, later on - to local disk for processing) in both it's full sized "RAW" file (`.CR2`), and a compressed `.jpg` file.
 
 Initial filtering is much quicker to process by just **previewing** all the lighter-weight `.jpg` files, and deleting all the "bad" images (wrong exposure, out of focus, etc...).  
 In the following stop - all corresponding `.CR2` files can be deleted as well - which is what this script was born to do:
