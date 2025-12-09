@@ -39,38 +39,34 @@ $FileNameExtension = '.CR2'
 
 # Check if List file Exists: 
 if (!(Test-Path -Path $ListFilePath)){
-                                write-warning "No Batch list File Found!";
-                                Pause
-                                Exit
-                            } 
+    write-warning "No Batch list File Found!";
+    Pause
+    Exit
+} 
     
-    else {
-            Write-Output "List file found: $ListFilePath, Beginning process. . . `n"
-         }
-
+else {
+        Write-Output "List file found: $ListFilePath, Beginning process. . . `n"
+}
 
 # Get an array of records from file list, make sure to fetch only "numbers":
 $RawFilesList = Get-Content -Path $ListFilePath | where {[int]::TryParse($_, [ref]0)}
 
-
 foreach ($Record in $RawFilesList){
 
-                    # Use Regex to get only numerical values from list:
-                    $RawFileName = $Record -replace $pattern, ''
-                    
-                    # Append "IMG_000" (according to name length) to each record, and .CR2 Extension
-                    if ($RawFileName.Length -le $MaxRecordLegnth){
-                            $ValidFileNames += "IMG_" +  ($ZeroString * ($MaxRecordLegnth - $RawFileName.length)) + $RawFileName + $FileNameExtension
-                            
-                        }
-                  
-                        else {
-                                $InvalidFileNames += $RawFileName                       
-                             }
-            }
+    # Use Regex to get only numerical values from list:
+    $RawFileName = $Record -replace $pattern, ''
     
+    # Append "IMG_000" (according to name length) to each record, and .CR2 Extension
+    if ($RawFileName.Length -le $MaxRecordLegnth){
+        $ValidFileNames += "IMG_" +  ($ZeroString * ($MaxRecordLegnth - $RawFileName.length)) + $RawFileName + $FileNameExtension
+    }
+  
+    else {
+        $InvalidFileNames += $RawFileName                       
+    }
+}
 
-
+    
 if ($InvalidFileNames.Count -gt 0){
     Write-Output "The following supplied filenames were invalid: $InvalidFileNames `n"
 }
@@ -79,6 +75,4 @@ Write-Output "Copying:`n $ValidFileNames `nto $BestFolder . . ."
 
 Robocopy.exe $WorkFolder $BestFolder $ValidFileNames /MT 16 /NJH
 
-Write-Output "`nProcess completed, Thank you for using my script! "
-
-
+Write-Output "`nProcess completed, Thank you for using my script!"
