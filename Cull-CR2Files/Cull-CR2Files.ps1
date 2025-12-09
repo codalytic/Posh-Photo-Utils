@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Delete all CR2 Files which have no corresponding JPG file name in a given folder
+    Delete all CR2 (raw) files which have no corresponding JPG file name in a given folder
 .DESCRIPTION
     This script looks for all existing RAW camera files (.CR2) and all JPG files in a given directory 
     (Selected by the user upon running the script using a Windows Folder Browser Dialog).
@@ -35,31 +35,31 @@ $FolderBrowser.SelectedPath
 # Make an array of all files in selected folder
 $AllFilesArray = Get-ChildItem -Path $FolderBrowser.SelectedPath
 
-
-        # Didive the main array to 2 sub-arrays, filtered by the files extension:
-        $JpgFilesArray = $AllFilesArray | Where-Object {$_.Extension -eq '.jpg'}
-        $CR2FilesArray = $AllFilesArray | Where-Object {$_.Extension -eq '.CR2'}
+    # Didive the main array to 2 sub-arrays, filtered by the files extension:
+    $JpgFilesArray = $AllFilesArray | Where-Object {$_.Extension -eq '.jpg'}
+    $CR2FilesArray = $AllFilesArray | Where-Object {$_.Extension -eq '.CR2'}
 
 # If there happens to be only 1 or less files in each sub-array, there's no point to run this script.
 # Notify the user and exit:
 if ($JpgFilesArray.count -lt 1 -or $CR2FilesArray.Count -lt 1) {
-        Write-Warning "Looks like there are only 1 or less files of the types you're looking for. Please re-check your folder and try again."
-    }
+    Write-Warning "Looks like there are only 1 or less files of the types you're looking for. Please re-check your folder and try again."
+}
 
+Else {  
+    # Add all CR2 Files with no corresponding jpg files (same name) to a "FilesToDelete" Array:
+    $FilesToDelete = Compare-object $CR2FilesArray  $JpgFilesArray -Property BaseName -PassThru
 
-Else {  # Add all CR2 Files with no corresponding jpg files (same name) to a "FilesToDelete" Array:
-        $FilesToDelete = Compare-object $CR2FilesArray  $JpgFilesArray -Property BaseName -PassThru
+    # Display count of Jpg and CR2 files, as well as a list of all CR2 files pending Deletion:
+    Write-Output "$($JpgFilesArray.Count) JPG Files and $($CR2FilesArray.Count) CR2 files were found in $($FolderBrowser.SelectedPath)."
+    Write-Output "Here's a list of all files pending deletion: $FilesToDelete `n"
 
-        # Display count of Jpg and CR2 files, as well as a list of all CR2 files pending Deletion:
-        Write-Output "$($JpgFilesArray.Count) JPG Files and $($CR2FilesArray.Count) CR2 files were found in $($FolderBrowser.SelectedPath)."
-        Write-Output "Here's a list of all files pending deletion: $FilesToDelete `n"
+    # Delete extra CR2 Files pending user confirmation
+    $FilesToDelete | Remove-Item -Confirm 
+}
 
-        # Delete extra CR2 Files pending user confirmation
-        $FilesToDelete | Remove-Item -Confirm 
-    }
-
-    # Let user know process is done:
-    Write-Output "`nSelected CR2 Files have been deleted, thank you for using my script!`n"
+# Let user know process is done:
+Write-Output "`nSelected CR2 Files have been deleted, thank you for using my script!`n"
 
 Pause
+
 Exit
