@@ -45,11 +45,12 @@ Utility no. 2: "Copy-ToBestFolder.ps1"
 -------------------------------------------------------------------------------------------------------------------------------
 
 The motivation behind this script, is to help the process of "final" filtering - where the absolute best photos should end up residing in their own folder, seperately from all the others (which are usually kept aside anyway in case of later interest).
+This top selection of "best" photos is an artifact of the photographer's workflow, where the shortlisted files end up in a "best.txt" text file. 
 
 This script looks for a .txt list of file names in the selected folder, creates a folder named "Best" and copies all corrsponding CR2 files to the "Best" folder.
 
 * User should supply a list of file names to copy in a .txt file named "Best.txt":
-  - Naming convention should just be the file's unique ID, so for example a file named "IMG_0181.CR2" should only be listed as "181".
+   - Naming convention should just be the file's unique ID, so for example a file named "IMG_0181.CR2" should only be listed as "181".
    - The "Best.txt" file should reside in the same directory as the "source" folder (Where files are to be copied from)
    - "Best" folder will be created inside the selected "source" folder, and the listed files will be copied to it.
 
