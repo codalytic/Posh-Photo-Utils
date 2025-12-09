@@ -16,7 +16,7 @@
         - The "Best.txt" file should reside in the same directory as the "source" folder (Where files are to be copied from)
         - "Best" folder will be created inside the selected "source" folder, and the listed files will be copied to it.
 
-    * The copy is performed using "RoboCopy.exe", with a (currently hardcoded) default of 16 multiple threads, to allow for a relatively fast paraller copy
+    * The copy is performed using "RoboCopy.exe", with a (currently hardcoded) default of 16 multiple threads, to allow for a relatively fast parallel copy
      without heavily punishing the computer's resources.
 #>
 
@@ -80,4 +80,5 @@ Write-Output "Copying:`n $ValidFileNames `nto $BestFolder . . ."
 Robocopy.exe $WorkFolder $BestFolder $ValidFileNames /MT 16 /NJH
 
 Write-Output "`nProcess completed, Thank you for using my script! "
+
 
