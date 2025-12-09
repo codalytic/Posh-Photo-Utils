@@ -27,7 +27,7 @@ The motivation behind this script, derives from the way the photographer preform
 Each photograph taken is saved (originally to the camera's SD Card, later on - to local disk for processing) in both it's full sized "RAW" file (`.CR2`), and a compressed `.jpg` file.
 
 Initial filtering is much quicker to process by just **previewing** all the lighter-weight `.jpg` files, and deleting all the "bad" images (wrong exposure, out of focus, etc...).  
-In the following stop - all corresponding `.CR2` files can be deleted as well - which is what this script was born to do:
+In the following step - all _corresponding_ `.CR2` files can be deleted as well - which is what this script was born to do:
 
 Automating this very manual (click-to-select) task of cherry-picking a subset of hundreds of files out of a vast list of thousands,  
 it saves a lot of time, human-error and frustration.
@@ -51,10 +51,11 @@ Finally, the script will delete all files "approved for deletion" by the user.
 
 ### The "Why":
 In the later process of "final" filtering, a selection of "top/best" photos is carefully curated into a `Best.txt` file.  
-The files listed in it are then copied over to a `Best` subdirectory, which, again is a highly time consuming task - involving _manually_ looking for specific filenames within a folder of hundres (or more), click-to-select each of them to highlight for the copy action.
+The files listed in it are then copied over to a new subdirectory named `Best`.  
+This is a highly time consuming task - involving _manually_ looking for specific filenames within a folder of hundres (or more), then click-to-select each of them to highlight for the copy action.
 
-This is where the `Best.txt` artifact of the process comes in handy, 
-and I've built this script to take that list of files as an input, and use it to automate the selection/copy tasks.
+This is where the `Best.txt` artifact of the filtering process comes in handy;  
+I've built this script to expect that `Best.txt` list of files as an _input_, and use it as a data-source for automating the multi-file copy task.
 
 ### The "How":
 This script looks for a `Best.txt` list of file names in the selected folder, creates a folder named `Best` and copies all corrsponding CR2 files to the "Best" folder.
