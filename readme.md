@@ -1,6 +1,12 @@
 # Posh-Photo-Utils
- -------------------------------------------------------------------------------------------------------------------------------
-This on-going project consists of a set of bespoke utilities I've created for a photographer to  improve her file management and processing workflows.
+
+> [!NOTE]
+> **Legacy Showcase (2017)**
+> I’m keeping this repository public as a snapshot of my scripting work from a few years back.  
+> It demonstrates my early approach to writing **clean, modular, self-documenting code** and careful handling of precious digital assets,  
+> all while prioritizing usability for less-technical users.
+ 
+This project consists of a set of bespoke utilities I've created for a photographer to improve her file management and processing workflows.
 
 Future utilities in this context will be added to this project, as well as improvements / fixes to existing ones.
 
